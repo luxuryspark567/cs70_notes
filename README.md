@@ -31,11 +31,11 @@ A set is a well defined collection of objects.
 
 ### Complements
 
-$$B-A$$, or $$B\A$$: $$B\A = \lbrace x \in B | x \notin A \rbrace$$, the relative complement of A in B, or the set difference between B and A
+$$B-A$$, or $$B \backslash A$$: $$B \backslash A = \lbrace x \in B | x \notin A \rbrace$$, the relative complement of A in B, or the set difference between B and A
 
 Properties:
 
-* $$A\A = \emptyset$$
+* $$A \backslash A = \emptyset$$
 * $$A \backslash \emptyset = A$$
 * $$\emptyset \backslash A = \emptyset$$
 
