@@ -4,7 +4,7 @@
 
 A set is a well defined collection of objects.
 
-* &#x20;$$x \in A$$: x is an element of A.
+* $$x \in A$$: x is an element of A.
 * $$y \notin A$$: y is not an element of A.
 * $$A=B$$: Two sets A and B are said to be equal.
 
@@ -43,7 +43,7 @@ Properties:
 
 * $$\Bbb N$$ denotes the set of all natural numbers: $$\lbrace 0, 1, 2, 3, ...\rbrace$$.
 * $$\Bbb Z$$ denotes the set of all integer numbers: $$\lbrace . . . ,−2,−1, 0, 1, 2, . . .\rbrace$$.
-* $$\Bbb Q$$ denotes the set of all rational numbers: $$\lbrace ab |a, b ∈Z, b ̸= 0 \rbrace$$$$\lbrace \frac{a}{b} \mid a,b \in \mathbb{Z}, b \neq 0\rbrace$$.
+* $$\Bbb Q$$ denotes the set of all rational numbers: $$\lbrace ab |a, b \in Z, b ̸= 0 \rbrace$$$$\lbrace \frac{a}{b} \mid a,b \in \mathbb{Z}, b \neq 0\rbrace$$.
 * $$\Bbb R$$ denotes the set of all real numbers.
 * $$\Bbb C$$ denotes the set of all complex numbers
 
@@ -69,8 +69,6 @@ Properties:
 * Use Both:
   * $$(\forall x \in \Bbb Z)( \exists y \in \Bbb Z)(y > x)$$, given an integer, we can find a larger one, True
   * $$( \exists y \in \Bbb Z)(\forall x \in \Bbb Z)(y > x)$$, there is a largest integer, False
-
-should be updated.
 
 
 
