@@ -1,3 +1,4 @@
 # Table of contents
 
-* [1, Sets and Mathematical Notation](README.md)
+* [Lecture 1](README.md)
+* [1, Sets and Mathematical Notation](<README (1).md>)
