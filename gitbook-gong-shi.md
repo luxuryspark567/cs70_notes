@@ -619,7 +619,7 @@ $$
 
 ### 逻辑运算符
 
-<table><thead><tr><th width="119.83984375">命令</th><th width="54.6796875">显示</th><th width="135.046875">命令</th><th width="57.42578125">显示</th><th width="105.234375">命令</th><th width="69.28125">显示</th><th width="106.3359375">命令</th><th width="58.16796875">显示</th></tr></thead><tbody><tr><td><code>\because</code></td><td><span class="math">\because</span></td><td><code>\therefore</code></td><td><span class="math">\therefore</span></td><td><code>\forall</code></td><td><span class="math">\forall</span></td><td><code>\exists</code></td><td><span class="math">\exists</span></td></tr></tbody></table>
+<table><thead><tr><th width="119.83984375">命令</th><th width="54.6796875">显示</th><th width="135.046875">命令</th><th width="57.42578125">显示</th><th width="105.234375">命令</th><th width="69.28125">显示</th><th width="106.3359375">命令</th><th width="58.16796875">显示</th></tr></thead><tbody><tr><td><code>\because</code></td><td><span class="math">\because</span></td><td><code>\therefore</code></td><td><span class="math">\therefore</span></td><td><code>\forall</code></td><td><span class="math">\forall</span></td><td><code>\exists</code></td><td><span class="math">\exists</span></td></tr><tr><td><code>\lnot</code> 或 <code>\neg</code></td><td><span class="math">\neg</span></td><td><code>\land</code></td><td><span class="math">\land</span></td><td><code>\lor</code></td><td><span class="math">\lor</span></td><td></td><td></td></tr></tbody></table>
 
 ### 箭头符号
 
