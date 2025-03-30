@@ -4,11 +4,39 @@ description: Lecture1
 
 # Lecture 1
 
-## Propositions
+Logic and Proofs
 
-Statements that are <mark style="color:blue;">true</mark> or <mark style="color:red;">false</mark>.
+logic is directly related to digital circuit design, and proofs by induction play a central role in analyzing programs.
+
+modular arithmetic. The beautiful properties of such numbers leads directly to schemes for computer security, and for storing and transmitting data so that it is immune to noise.
+
+## Propositional Logic
+
+Proposition is simply a statement which is either true or false.
+
+Propositions should not include fuzzy terms.
+
+(6) Arnold Schwarzenegger often eats broccoli. (What is “often?")
+
+(7) Henry VIII was unpopular. (What is “unpopular?")
 
 ## Propositional Forms
+
+Propositions may be joined together to form more complex statements. Let P, Q, and R be variables representing propositions (for example, P could stand for “3 is odd"). The simplest way of joining these propositions together is to use the connectives “and”, “or” and “not."
+
+(1) Conjunction: P ∧Q (“P and Q"). True only when both P and Q are true.
+
+(2) Disjunction: P ∨Q (“P or Q"). True when at least one of P and Q is true.
+
+(3) Negation: ¬P (“not P"). True when P is false.
+
+Statements like these, with variables Statements like these, with variables, are called _**propositional forms**_.
+
+A propositional form that is always true regardless of the truth values of its variables is called a <mark style="color:red;">tautology</mark>. Conversely, a statement such as P ∧¬P, which is always false, is called a <mark style="color:red;">contradiction</mark>.
+
+
+
+A useful tool for describing the possible values of a propositional form is a **truth table**.
 
 <figure><img src=".gitbook/assets/截屏2025-03-30 16.02.12.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -49,6 +77,56 @@ $$(A \lor B) \land (C \lor D) \equiv (A \land C) \lor (A \land D) \lor (B \land 
 $$(A \land B) \lor (C \land D) \equiv (A \lor C) \land (A \lor D) \land (B \lor C) \land (B \lor D)$$
 
 ## Implication
+
+The most important and subtle propositional form is an implication:
+
+(4) Implication: P= ⇒Q (“P implies Q"). This is the same as “If P, then Q."
+
+Here, P is called the hypothesis of the implication, and Q is the conclusion.
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:red;">An implication P= ⇒Q is false only when P is true and Q is false.</mark>This means that many statements that sound nonsensical in English are true, mathematically speaking. Examples are statements like: “If pigs can fly, then horses can read" or “If 14 is odd then 1 + 2= 18." (These are statements that we never make in everyday life, but are perfectly natural in mathematics.) When an implication is stupidly true because the hypothesis is false, we say that it is _vacuously true_.
+
+Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
+
+P= ⇒Q is the most common form mathematical theorems take. Here are some of the different ways of
+
+saying it:
+
+(1) if P, then Q;
+
+(2) Q if P;
+
+(3) P only if Q;
+
+(4) P is sufficient for Q;
+
+(5) Q is necessary for P;
+
+(6) Q unless not P.
+
+If both P= ⇒Q and Q= ⇒P are true, then we say “P if and only if Q" (abbreviated “P iff Q"). Formally,
+
+we write P ⇐⇒Q. Note that P ⇐⇒Q is true only when P and Q have the same truth values (both true or
+
+both false).
+
+
+
+Given an implication P= ⇒Q, we can also define its
+
+(a) Contrapositive: ¬Q= ⇒¬P
+
+(b) Converse: Q= ⇒P
+
+<figure><img src=".gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+
+Note that P= ⇒Q and its contrapositive have the same truth values everywhere in their truth tables, so they are logically equivalent: (P= ⇒Q) ≡(¬Q= ⇒¬P).
+
+
+
+
 
 $$P \implies Q$$ interpreted as: If P, then Q.
 
@@ -106,7 +184,7 @@ $$P \implies Q$$&#x20;
 
 ### True Table for Implication
 
-<figure><img src=".gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
 Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
 
@@ -142,6 +220,106 @@ $$C(x) \implies F (x)$$. Theory from Wason’s. If person x goes to Chicago then
 <mark style="color:red;">Statements about boolean valued functions</mark>.
 
 ## Quantifiers
+
+The mathematical statements you’ll see in practice will not be made up of simple propositions like “3 is
+
+odd." Instead you’ll see statements like:
+
+(1) For all natural numbers n, n2 + n + 41 is prime.
+
+(2) If n is an odd integer, so is n3.
+
+(3) There is an integer k that is both even and odd.
+
+Why are the above three examples considered to be propositions, while earlier we claimed that “x2 + 3x = 5" was not? The reason is that in these three examples, there is an underlying “universe" that we are working in. The statements are then quantified over that universe. To express these statements mathematically we need two quantifiers: The universal quantifier ∀(“for all”) and the existential quantifer ∃(“there exists”).
+
+Note that in a finite universe, we can express existentially and universally quantified propositions without quantifiers, using disjunctions and conjunctions respectively. For example, if our universe U is {1, 2, 3, 4}, then ∃xP(x) is logically equivalent to P(1) ∨P(2) ∨P(3) ∨P(4), and ∀xP(x) is logically equivalent to
+
+P(1) ∧P(2) ∧P(3) ∧P(4). However, in an infinite universe, such as the natural numbers, this is not possible.
+
+<mark style="color:red;">**Some statements can have multiple quantifiers**</mark>. As we will see, however, quantifiers do not commute. You can see this just by thinking about English statements. Consider the following (rather gory) example:
+
+Example:
+
+“Every time I ride the subway in New York, somebody gets stabbed."
+
+“There is someone, such that every time I ride the subway in New York, that someone gets stabbed."
+
+The first statement is saying that every time I ride the subway someone gets stabbed, but it could be a
+
+different person each time. The second statement is saying something truly horrible: that there is some poor guy Joe with the misfortune that every time I get on the New York subway, there is Joe, getting stabbed again. (Poor Joe will run for his life the second he sees me.)
+
+Mathematically, we are quantifying over two universes: T= {times when I ride on the subway}and P=
+
+{people}. The first statement can be written: (∀t ∈T )(∃p ∈P)(p gets stabbed at time t). The second
+
+statement says: (∃p ∈P)(∀t ∈T )(p gets stabbed at time t).
+
+Let’s look at a more mathematical example:
+
+Consider
+
+1\. (∀x ∈Z)(∃y ∈Z)(x < y)
+
+2\. (∃y ∈Z)(∀x ∈Z)(x < y)
+
+The first statement says that, given an integer, I can find a larger one. The second statement says something very different: that there is a largest integer! The first statement is true, the second is not.
+
+## Much Ado About Negation
+
+First, let’s look at how to negate conjunctions and disjunctions:
+
+¬(P ∧Q) ≡(¬P ∨¬Q)
+
+¬(P ∨Q) ≡(¬P ∧¬Q)
+
+These two equivalences are known as De Morgan’s Laws, and they are quite intuitive: for example, if it is
+
+not the case that P ∧Q is true, then either P or Q must be false.
+
+Negating propositions involving quantifiers actually follows analogous laws. Let’s start with a simple example. Assume that the universe is {1, 2, 3, 4}and let P(x) denote the propositional formula “x2 > 10." Check that ∃xP(x) is true but ∀xP(x) is false. Observe that both¬(∀xP(x)) and ∃x¬P(x) are true because P(1) is false. Also note that both ∀x¬P(x) and¬(∃xP(x)) are false, since P(4) is true. The fact that each pair of statements had the same truth value is no accident, as the equivalences
+
+¬(∀xP(x)) ≡∃x¬P(x)
+
+¬(∃xP(x)) ≡∀x¬P(x)
+
+are laws that hold for any proposition P quantified over any universe (including infinite ones).
+
+It is helpful to think of English sentences to convince yourself (informally) that these laws are true. For
+
+example, assume that we are working within the universe Z (the set of all integers), and that P(x) is the
+
+proposition “x is odd." We know that the statement (∀xP(x)) is false, since not every integer is odd. Therefore, we expect its negation,¬(∀xP(x)), to be true. But how would you say the negation in English? Well, if it is not true that every integer is odd, then that must mean there is some integer which is not odd (i.e., even). How would this be written in propositional form? That’s easy, it’s just: (∃x¬P(x)).
+
+To see a **more complex example, fix some universe and propositional formula P(x, y)**. Assume we have the proposition¬(∀x∃yP(x, y)) and we want to push the negation operator inside the quantifiers. By the above laws, we can do it as follows:
+
+¬(∀x∃yP(x, y)) ≡∃x¬(∃yP(x, y)) ≡∃x∀y¬P(x, y).
+
+Notice that we broke the complex negation into a smaller, easier problem as the negation propagated itself through the quantifiers. Note also that the quantifiers “flip” as we go.
+
+Let’s look at a trickier example:
+
+Write the sentence “there are at least three distinct integers x that satisfy P(x)" as a proposition using
+
+quantifiers! One way to do it is
+
+∃x∃y∃z(x ̸= y ∧y ̸= z ∧z ̸= x ∧P(x) ∧P(y) ∧P(z)).
+
+(Here all quantifiers are over the universe Z of integers.) Now write the sentence “there are at most three
+
+distinct integers x that satisfy P(x)" as a proposition using quantifiers. One way to do it is
+
+∃x∃y∃z∀d(P(d) = ⇒d= x ∨d= y ∨d= z).
+
+Here is an equivalent way to do it:
+
+∀x∀y∀v∀z((x ̸= y ∧y ̸= v ∧v ̸= x ∧x ̸= z ∧y ̸= z ∧v ̸= z) = ⇒¬(P(x) ∧P(y) ∧P(v) ∧P(z))).
+
+\[Check that you understand both of the above alternatives.] Finally, what if we want to express the sentence “there are exactly three distinct integers x that satisfy P(x)"? This is now easy: we can just use the conjunction of the two propositions above.
+
+
+
+
 
 * "There exists" quantifier
   * $$(\exists x \in S)(P(x))$$ means “There exists an $$x$$ in $$S$$ where $$P(x)$$ is true.”
