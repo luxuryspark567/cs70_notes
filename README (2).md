@@ -216,7 +216,7 @@ Propositional forms correspond to truth tables.
 
 Logical equivalence of forms means same truth tables.
 
-Implication: $$P \implies Q \iff \not P \lor Q$$.
+Implication: $$P \implies Q \iff \lnot P \lor Q$$.
 
 Contrapositive:$$\lnot Q \implies \lnot P$$
 
