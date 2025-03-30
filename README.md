@@ -14,6 +14,8 @@ Use truth table to decide the logical equivalence of propsitional forms.
 
 $$\lnot (P \lor Q) \equiv \lnot P \land \lnot Q$$
 
+$$\lnot (P \land Q) \equiv \lnot P \lor \lnot Q$$
+
 <figure><img src=".gitbook/assets/截屏2025-03-27 23.18.25.png" alt="" width="275"><figcaption></figcaption></figure>
 
 2. Implication
