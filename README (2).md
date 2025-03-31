@@ -6,26 +6,24 @@ description: Lecture1
 
 ## Logic and Proofs
 
-**Logic** is directly related to digital circuit design, and **proofs by induction** play a central role in analyzing programs.
-
-Modular arithmetic leads directly to schemes for computer security, and for storing and transmitting data so that it is immune to noise.
+* **Logic** is directly related to digital circuit design, and **proofs by induction** play a central role in analyzing programs.
+* **Modular arithmetic** leads directly to schemes for computer security, and for storing and transmitting data so that it is immune to noise.
 
 ## Propositional Forms
 
 * Proposition is simply a statement which is either <mark style="color:green;">true</mark> or <mark style="color:red;">false</mark>.
-  *   Propositions should not include fuzzy terms.
+  * “3 is odd"
+  * Propositions should not include fuzzy terms.
+    * Arnold Schwarzenegger often eats broccoli. (What is “often?")
+      * Henry VIII was unpopular. (What is “unpopular?")
+* Propositions **may be joined together** to form more complex statements. Let P, Q, and R be variables representing propositions. Statements like these, with variables, are called _**propositional forms**_.
+  * **Conjunction**: P ∧Q (“P and Q"). True only when both P and Q are true.
+  * **Disjunction**: P ∨Q (“P or Q"). True when at least one of P and Q is true.
+  * **Negation**: ¬P (“not P"). True when P is false.
 
-      (1) Arnold Schwarzenegger often eats broccoli. (What is “often?")
-
-      (2) Henry VIII was unpopular. (What is “unpopular?")
-* Propositions may be joined together to form more complex statements.&#x20;
-  * Let P, Q, and R be variables representing propositions (for example, P could stand for “3 is odd"). The simplest way of joining these propositions together is to use the connectives “and”, “or” and “not."
-  * (1) Conjunction: P ∧Q (“P and Q"). True only when both P and Q are true.
-  * (2) Disjunction: P ∨Q (“P or Q"). True when at least one of P and Q is true.
-  * (3) Negation: ¬P (“not P"). True when P is false.
-* Statements like these, with variables Statements like these, with variables, are called _**propositional forms**_.
-  * <mark style="color:red;">tautology:</mark> A propositional form that is always true regardless of the truth values of its variables
-  * <mark style="color:red;">contradiction:</mark> a statement such as P ∧¬P, which is always false.
+{% hint style="info" %}
+Note that P ∨¬P is always true, regardless of the truth value of P. A propositional form that is always true regardless of the truth values of its variables is called a **tautology**. Conversely, a statement such as P ∧¬P, which is always false, is called a **contradiction**.
+{% endhint %}
 
 ## Truth Table
 
@@ -33,67 +31,44 @@ A useful tool for describing the possible values of a propositional form is a **
 
 <figure><img src=".gitbook/assets/截屏2025-03-30 16.02.12.png" alt="" width="375"><figcaption></figcaption></figure>
 
-* $$(T \land Q) \equiv Q$$，看左边的表，P为T的时候，结果为Q。
-* &#x20;$$(F \land Q) \equiv F$$
-* &#x20;$$(T \lor Q) \equiv T$$, 看右边的表，P等于T的时候，结果为T
-* &#x20;$$(F \lor Q) \equiv Q$$
-
-Use truth table to decide the logical equivalence of propositional forms.
-
-$$\lnot (P \lor Q) \equiv \lnot P \land \lnot Q$$, $$\lnot (P \land Q) \equiv \lnot P \lor \lnot Q$$
+* Intuitive:
+  * $$(T \land Q) \equiv Q$$
+  * &#x20;$$(F \land Q) \equiv F$$
+  * &#x20;$$(T \lor Q) \equiv T$$
+  * &#x20;$$(F \lor Q) \equiv Q$$
+* De Morgan’s Laws
+  * $$\lnot (P \lor Q) \equiv \lnot P \land \lnot Q$$
+  * $$\lnot (P \land Q) \equiv \lnot P \lor \lnot Q$$
 
 <figure><img src=".gitbook/assets/截屏2025-03-27 23.18.25.png" alt="" width="275"><figcaption></figcaption></figure>
 
-Distributive
-
-$$P \land (Q \lor R) \equiv (P \land Q) \lor (P\land R)$$
-
-Simplify: $$(T \land Q) \equiv Q$$, $$(F \land Q) \equiv F$$
-
-Cases:&#x20;
-
-* P is True.
-  * LHS: $$T \land (Q \lor R) \equiv (Q \lor R)$$
-  * RHS: $$(T \land Q) \lor (T \land R) \equiv (Q \lor R)$$
-* P is False
-  * LHS: $$F \land (Q \lor R) \equiv F$$
-  * RHS: $$(F \land Q) \lor (F \land R) \equiv F$$
-
-$$P \lor (Q \land R) \equiv (P \lor Q) \land (P\lor R)$$
-
-Simplify: $$(T \lor Q) \equiv T$$, $$(F \lor Q) \equiv Q$$
-
-Foil:
-
-$$(A \lor B) \land (C \lor D) \equiv (A \land C) \lor (A \land D) \lor (B \land C) \lor (B \land D)$$
-
-$$(A \land B) \lor (C \land D) \equiv (A \lor C) \land (A \lor D) \land (B \lor C) \land (B \lor D)$$
+* Distributive
+  * $$P \land (Q \lor R) \equiv (P \land Q) \lor (P\land R)$$, to prove is to consider P is False and P is True
+  * $$P \lor (Q \land R) \equiv (P \lor Q) \land (P\lor R)$$
+* Foil:
+  * $$(A \lor B) \land (C \lor D) \equiv (A \land C) \lor (A \land D) \lor (B \land C) \lor (B \land D)$$
+  * $$(A \land B) \lor (C \land D) \equiv (A \lor C) \land (A \lor D) \land (B \lor C) \land (B \lor D)$$
 
 ## Implication
 
-The most important and subtle propositional form is an implication: $$P \implies Q$$
+The most important and subtle propositional form is an implication: $$P \implies Q$$, “P implies Q"
 
-“P implies Q", P is called the hypothesis of the implication, and Q is the conclusion.
+* P is the hypothesis
+* Q is the conclusion.
 
 Here are some of the different ways of saying it:
 
 1. if P, then Q;
 2. Q if P;
-3. P only if Q;
-   1. Remember if P is true then Q must be true. this suggests that P can only be true if Q is true. since if Q is false P must have been false.
-4. P is sufficient for Q;
-   1. This means that proving P allows you to conclude that Q is true.
-   2. Example: Showing n > 4 is sufficient for showing n > 3.
-5. Q is necessary for P;
-   1. For P to be true it is necessary that Q is true. Or if Q is false then we know that P is false.
-   2. Example: It is necessary that n > 3 for n > 4.
+3. P only if Q: P can only be true if Q is true. since if Q is false P must have been false.
+4. P is sufficient for Q: Proving P allows you to conclude that Q is true.
+5. Q is necessary for P: P to be true it is necessary that Q is true. Or if Q is false then we know that P is false.
 6. Q unless not P.
 
 ## Implication Truth Table
 
 <figure><img src=".gitbook/assets/image.png" alt="" width="372"><figcaption></figcaption></figure>
 
-* Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
 * An implication $$P \implies Q$$ is false <mark style="color:red;">**only when**</mark> <mark style="color:red;"></mark><mark style="color:red;">P is true and Q is false</mark>.
 
 {% hint style="info" %}
@@ -102,13 +77,18 @@ This means that many statements that sound nonsensical in English are true, math
 
 ## Implication Properites
 
-* Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
-  * $$P \implies Q \equiv \lnot P \lor Q \implies \lnot (\lnot Q) \lor \lnot P \implies \lnot Q \implies \lnot P$$.
-* $$P \iff Q$$
-  * If both P= ⇒Q and Q= ⇒P are true, then we say “P if and only if Q" (abbreviated “P iff Q"). Formally, we write P ⇐⇒Q. Note that P ⇐⇒Q is true only when P and Q have the same truth values (both true or both false).
+* $$P \implies Q \equiv \lnot Q \implies \lnot P$$
+  * $$P \implies Q \equiv \lnot P \lor Q \equiv \lnot (\lnot Q) \lor \lnot P \equiv \lnot Q \implies \lnot P$$.
+* $$P \iff Q \equiv (P \implies Q) \land (Q \implies P)$$
+  * “P if and only if Q" (abbreviated “P iff Q"). Formally, we write P ⇐⇒Q.&#x20;
+  * Note that P ⇐⇒Q is true only when <mark style="color:red;">P and Q have the same truth values (both true or both false)</mark>.
+
+## Contrapositive and Converse
+
 * Contrapositive: ¬Q= ⇒¬P
 * Converse: Q= ⇒P
-* Note that P= ⇒Q and its contrapositive have the same truth values everywhere in their truth tables, so they are logically equivalent: (P= ⇒Q) ≡(¬Q= ⇒¬P).
+
+Note that P= ⇒Q and its contrapositive have the same truth values everywhere in their truth tables, so they are logically equivalent: (P= ⇒Q) ≡(¬Q= ⇒¬P).
 
 <figure><img src=".gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
