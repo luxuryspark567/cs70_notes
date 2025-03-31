@@ -4,37 +4,30 @@ description: Lecture1
 
 # Lecture 1
 
-Logic and Proofs
+## Logic and Proofs
 
-logic is directly related to digital circuit design, and proofs by induction play a central role in analyzing programs.
+**Logic** is directly related to digital circuit design, and **proofs by induction** play a central role in analyzing programs.
 
-modular arithmetic. The beautiful properties of such numbers leads directly to schemes for computer security, and for storing and transmitting data so that it is immune to noise.
-
-## Propositional Logic
-
-Proposition is simply a statement which is either true or false.
-
-Propositions should not include fuzzy terms.
-
-(6) Arnold Schwarzenegger often eats broccoli. (What is “often?")
-
-(7) Henry VIII was unpopular. (What is “unpopular?")
+Modular arithmetic leads directly to schemes for computer security, and for storing and transmitting data so that it is immune to noise.
 
 ## Propositional Forms
 
-Propositions may be joined together to form more complex statements. Let P, Q, and R be variables representing propositions (for example, P could stand for “3 is odd"). The simplest way of joining these propositions together is to use the connectives “and”, “or” and “not."
+* Proposition is simply a statement which is either <mark style="color:green;">true</mark> or <mark style="color:red;">false</mark>.
+  *   Propositions should not include fuzzy terms.
 
-(1) Conjunction: P ∧Q (“P and Q"). True only when both P and Q are true.
+      (1) Arnold Schwarzenegger often eats broccoli. (What is “often?")
 
-(2) Disjunction: P ∨Q (“P or Q"). True when at least one of P and Q is true.
+      (2) Henry VIII was unpopular. (What is “unpopular?")
+* Propositions may be joined together to form more complex statements.&#x20;
+  * Let P, Q, and R be variables representing propositions (for example, P could stand for “3 is odd"). The simplest way of joining these propositions together is to use the connectives “and”, “or” and “not."
+  * (1) Conjunction: P ∧Q (“P and Q"). True only when both P and Q are true.
+  * (2) Disjunction: P ∨Q (“P or Q"). True when at least one of P and Q is true.
+  * (3) Negation: ¬P (“not P"). True when P is false.
+* Statements like these, with variables Statements like these, with variables, are called _**propositional forms**_.
+  * <mark style="color:red;">tautology:</mark> A propositional form that is always true regardless of the truth values of its variables
+  * <mark style="color:red;">contradiction:</mark> a statement such as P ∧¬P, which is always false.
 
-(3) Negation: ¬P (“not P"). True when P is false.
-
-Statements like these, with variables Statements like these, with variables, are called _**propositional forms**_.
-
-A propositional form that is always true regardless of the truth values of its variables is called a <mark style="color:red;">tautology</mark>. Conversely, a statement such as P ∧¬P, which is always false, is called a <mark style="color:red;">contradiction</mark>.
-
-
+## Truth Table
 
 A useful tool for describing the possible values of a propositional form is a **truth table**.
 
@@ -78,134 +71,55 @@ $$(A \land B) \lor (C \land D) \equiv (A \lor C) \land (A \lor D) \land (B \lor 
 
 ## Implication
 
-The most important and subtle propositional form is an implication:
+The most important and subtle propositional form is an implication: $$P \implies Q$$
 
-(4) Implication: P= ⇒Q (“P implies Q"). This is the same as “If P, then Q."
+“P implies Q", P is called the hypothesis of the implication, and Q is the conclusion.
 
-Here, P is called the hypothesis of the implication, and Q is the conclusion.
+Here are some of the different ways of saying it:
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+1. if P, then Q;
+2. Q if P;
+3. P only if Q;
+   1. Remember if P is true then Q must be true. this suggests that P can only be true if Q is true. since if Q is false P must have been false.
+4. P is sufficient for Q;
+   1. This means that proving P allows you to conclude that Q is true.
+   2. Example: Showing n > 4 is sufficient for showing n > 3.
+5. Q is necessary for P;
+   1. For P to be true it is necessary that Q is true. Or if Q is false then we know that P is false.
+   2. Example: It is necessary that n > 3 for n > 4.
+6. Q unless not P.
 
-<mark style="color:red;">An implication P= ⇒Q is false only when P is true and Q is false.</mark>This means that many statements that sound nonsensical in English are true, mathematically speaking. Examples are statements like: “If pigs can fly, then horses can read" or “If 14 is odd then 1 + 2= 18." (These are statements that we never make in everyday life, but are perfectly natural in mathematics.) When an implication is stupidly true because the hypothesis is false, we say that it is _vacuously true_.
+## Implication Truth Table
 
-Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
+<figure><img src=".gitbook/assets/image.png" alt="" width="372"><figcaption></figcaption></figure>
 
-P= ⇒Q is the most common form mathematical theorems take. Here are some of the different ways of
+* Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
+* An implication $$P \implies Q$$ is false <mark style="color:red;">**only when**</mark> <mark style="color:red;"></mark><mark style="color:red;">P is true and Q is false</mark>.
 
-saying it:
+{% hint style="info" %}
+This means that many statements that sound nonsensical in English are true, mathematically speaking. Examples are statements like: “If pigs can fly, then horses can read" or “If 14 is odd then 1 + 2= 18." (These are statements that we never make in everyday life, but are perfectly natural in mathematics.) When an implication is stupidly true because the hypothesis is false, we say that it is _<mark style="color:red;">**vacuously true**</mark>_.
+{% endhint %}
 
-(1) if P, then Q;
+## Implication Properites
 
-(2) Q if P;
+* Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
+  * $$P \implies Q \equiv \lnot P \lor Q \implies \lnot (\lnot Q) \lor \lnot P \implies \lnot Q \implies \lnot P$$.
+* $$P \iff Q$$
+  * If both P= ⇒Q and Q= ⇒P are true, then we say “P if and only if Q" (abbreviated “P iff Q"). Formally, we write P ⇐⇒Q. Note that P ⇐⇒Q is true only when P and Q have the same truth values (both true or both false).
+* Contrapositive: ¬Q= ⇒¬P
+* Converse: Q= ⇒P
+* Note that P= ⇒Q and its contrapositive have the same truth values everywhere in their truth tables, so they are logically equivalent: (P= ⇒Q) ≡(¬Q= ⇒¬P).
 
-(3) P only if Q;
-
-(4) P is sufficient for Q;
-
-(5) Q is necessary for P;
-
-(6) Q unless not P.
-
-If both P= ⇒Q and Q= ⇒P are true, then we say “P if and only if Q" (abbreviated “P iff Q"). Formally,
-
-we write P ⇐⇒Q. Note that P ⇐⇒Q is true only when P and Q have the same truth values (both true or
-
-both false).
-
-
-
-Given an implication P= ⇒Q, we can also define its
-
-(a) Contrapositive: ¬Q= ⇒¬P
-
-(b) Converse: Q= ⇒P
-
-<figure><img src=".gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-Note that P= ⇒Q and its contrapositive have the same truth values everywhere in their truth tables, so they are logically equivalent: (P= ⇒Q) ≡(¬Q= ⇒¬P).
-
-
-
-
-
-$$P \implies Q$$ interpreted as: If P, then Q.
-
-True Statements: P, $$P \implies Q$$.
-
-Conclude: Q is True.
-
-The statement “$$P \implies Q$$”
-
-only is False if P is True and Q is False .
-
-False implies nothing
-
-P False means Q can be True or False
-
-Anything implies true.
-
-P can be True or False when Q is True
+<figure><img src=".gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 If chemical plant pollutes river, fish die.
 
-If fish die, did chemical plant pollute river?
+Use propositional formulas to describe implication: $$((P \implies Q) \land P) \implies Q$$.
 
-Not necessarily.
-
-$$P \implies Q$$ and Q are True does not mean P is True
-
-Be careful!
-
-Instead we have:
-
-$$P \implies Q$$ and P are True does mean Q is True .
-
-The chemical plant pollutes river. Can we conclude fish die?
-
-Some Fun: use propositional formulas to describe implication?
-
-$$((P \implies Q) \land P) \implies Q$$.
-
-### Implication and English
-
-$$P \implies Q$$&#x20;
-
-* If P, then Q.
-* Q if P.
-  * Just reversing the order.
-* P only if Q.
-  * Remember if P is true then Q must be true. this suggests that P can only be true if Q is true. since if Q is false P must have been false.
-* P is sufficient for Q.
-  * This means that proving P allows you to conclude that Q is true.
-  * Example: Showing n > 4 is sufficient for showing n > 3.
-* Q is necessary for P.
-  * For P to be true it is necessary that Q is true. Or if Q is false then we know that P is false.
-  * Example: It is necessary that n > 3 for n > 4.
-
-### True Table for Implication
-
-<figure><img src=".gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
-
-Logically Equivalent: $$\lnot P \lor Q \equiv P \implies Q$$
-
-### Contrapositive, Converse
-
-* Contrapositive of $$P \implies Q$$ is $$\lnot Q \implies \lnot P$$.
-* If the plant pollutes, fish die.
-* If the fish don’t die, the plant does not pollute. (contrapositive)
-* If you stand in the rain, you get wet.
-* If you did not stand in the rain, you did not get wet. (not contrapositive!) converse!
-* If you did not get wet, you did not stand in the rain.(contrapositive.)
-
-Logically equivalent! Notation: $$\equiv$$.
-
-$$P \implies Q \equiv \lnot P \lor Q \implies \lnot (\lnot Q) \lor \lnot P \implies \lnot Q \implies \lnot P$$.
-
-* Converse of $$P \implies Q$$ is $$Q \implies P$$.
-* If fish die the plant pollutes.
-* Not logically equivalent!
-* Definition: If $$P \implies Q$$ and $$Q \implies P$$ is $$P$$ if and only if $$Q$$ or $$P \iff Q$$.
-* (Logically Equivalent: $$\iff$$ )
+* False implies nothing, P False means Q can be True or False
+* Anything implies true, P can be True or False when Q is True
+* $$P \implies Q$$ and Q are True does not mean P is True
+* $$P \implies Q$$ and P are True does mean Q is True .
 
 ## Predicates
 
@@ -221,49 +135,30 @@ $$C(x) \implies F (x)$$. Theory from Wason’s. If person x goes to Chicago then
 
 ## Quantifiers
 
-The mathematical statements you’ll see in practice will not be made up of simple propositions like “3 is
+Propositions should have an underlying “universe" and the statements are then quantified over that universe.&#x20;
 
-odd." Instead you’ll see statements like:
+* 3 is odd.
+* x2 + 3x = 5
+* For all natural numbers n, n2 + n + 41 is prime.
 
-(1) For all natural numbers n, n2 + n + 41 is prime.
+To express these statements mathematically we need two quantifiers: The universal quantifier ∀(“for all”) and the existential quantifer ∃(“there exists”).
 
-(2) If n is an odd integer, so is n3.
+Note that in a finite universe, we can express existentially and universally quantified propositions without quantifiers, using disjunctions and conjunctions respectively.&#x20;
 
-(3) There is an integer k that is both even and odd.
+For example, if our universe U is {1, 2, 3, 4}, then ∃xP(x) is logically equivalent to P(1) ∨P(2) ∨P(3) ∨P(4), and ∀xP(x) is logically equivalent to P(1) ∧P(2) ∧P(3) ∧P(4).&#x20;
 
-Why are the above three examples considered to be propositions, while earlier we claimed that “x2 + 3x = 5" was not? The reason is that in these three examples, there is an underlying “universe" that we are working in. The statements are then quantified over that universe. To express these statements mathematically we need two quantifiers: The universal quantifier ∀(“for all”) and the existential quantifer ∃(“there exists”).
+However, in an infinite universe, such as the natural numbers, this is not possible.
 
-Note that in a finite universe, we can express existentially and universally quantified propositions without quantifiers, using disjunctions and conjunctions respectively. For example, if our universe U is {1, 2, 3, 4}, then ∃xP(x) is logically equivalent to P(1) ∨P(2) ∨P(3) ∨P(4), and ∀xP(x) is logically equivalent to
+<mark style="color:red;">**Some statements can have multiple quantifiers**</mark>.&#x20;
 
-P(1) ∧P(2) ∧P(3) ∧P(4). However, in an infinite universe, such as the natural numbers, this is not possible.
-
-<mark style="color:red;">**Some statements can have multiple quantifiers**</mark>. As we will see, however, quantifiers do not commute. You can see this just by thinking about English statements. Consider the following (rather gory) example:
-
-Example:
-
-“Every time I ride the subway in New York, somebody gets stabbed."
-
-“There is someone, such that every time I ride the subway in New York, that someone gets stabbed."
-
-The first statement is saying that every time I ride the subway someone gets stabbed, but it could be a
-
-different person each time. The second statement is saying something truly horrible: that there is some poor guy Joe with the misfortune that every time I get on the New York subway, there is Joe, getting stabbed again. (Poor Joe will run for his life the second he sees me.)
-
-Mathematically, we are quantifying over two universes: T= {times when I ride on the subway}and P=
-
-{people}. The first statement can be written: (∀t ∈T )(∃p ∈P)(p gets stabbed at time t). The second
-
-statement says: (∃p ∈P)(∀t ∈T )(p gets stabbed at time t).
-
-Let’s look at a more mathematical example:
-
-Consider
-
-1\. (∀x ∈Z)(∃y ∈Z)(x < y)
-
-2\. (∃y ∈Z)(∀x ∈Z)(x < y)
-
-The first statement says that, given an integer, I can find a larger one. The second statement says something very different: that there is a largest integer! The first statement is true, the second is not.
+* quantifiers do not commute.&#x20;
+  * Example 1: \
+    Quantifying over two universes: T= {times when I ride on the subway} and P = {people}.&#x20;
+    * “Every time I ride the subway in New York, somebody gets stabbed." (it could be a different person each time): (∀t ∈T )(∃p ∈P)(p gets stabbed at time t)
+    * “There is someone, such that every time I ride the subway in New York, that someone gets stabbed.": (∃p ∈P)(∀t ∈T )(p gets stabbed at time t)
+  * Example 2:
+    * (∀x ∈Z)(∃y ∈Z)(x < y): Given an integer, I can find a larger one. (True)
+    * (∃y ∈Z)(∀x ∈Z)(x < y): There is a largest integer. (False)
 
 ## Much Ado About Negation
 
@@ -317,16 +212,10 @@ Here is an equivalent way to do it:
 
 \[Check that you understand both of the above alternatives.] Finally, what if we want to express the sentence “there are exactly three distinct integers x that satisfy P(x)"? This is now easy: we can just use the conjunction of the two propositions above.
 
-
-
-
-
 * "There exists" quantifier
   * $$(\exists x \in S)(P(x))$$ means “There exists an $$x$$ in $$S$$ where $$P(x)$$ is true.”
 * "For all" quantifier
   * $$(\forall x \in S) (P(x))$$. means “For all $$x$$ in $$S$$, $$P(x)$$ is True .”
-
-
 
 ## Quantifiers..not commutative.
 
@@ -366,8 +255,6 @@ Case that illustrates bug.
 
 For True : prove claim. Next lectures...
 
-
-
 Negation of exists.
 
 Consider
@@ -381,8 +268,6 @@ means that for all $$x \in S$$, $$P(x)$$ does not hold.
 That is,
 
 $$\lnot (\exist x \in S)(P(x))  \iff \forall (x \in S) \lnot P(x)$$.
-
-
 
 ## Summary.
 
