@@ -2,7 +2,7 @@
 description: Robert Lu
 ---
 
-# Lecture 1
+# Lecture 1. Propositional Forms
 
 ## Logic and Proofs
 
@@ -154,7 +154,7 @@ However, in an infinite universe, such as the natural numbers, this is not possi
 
 ### Analogous laws
 
-negating propositions involving quantifiers follows analogous law.
+Negating propositions involving quantifiers follows analogous law.
 
 * ¬(∀xP(x)) ≡∃x¬P(x)
 * ¬(∃xP(x)) ≡∀x¬P(x)
@@ -186,83 +186,3 @@ Let’s look at a trickier example:
   * $$\forall x \forall y \forall v \forall z ((x \neq y \land y \neq v \land v \neq x \land x \neq z \land y \neq z \land v \neq z) \implies \lnot (P(x) \land P(y) \land P(v) \land P(z)))$$
 * $$P \land Q$$
   * “there are exactly three distinct integers x that satisfy P(x)", This is now easy: we can just use the conjunction of the two propositions above.
-
-## Quantifiers..not commutative.
-
-In English: “there is a natural number that is the square of every natural number”.
-
-$$(\exist y \in N) (\forall x \in N) (y= x^2)$$ <mark style="color:red;">False</mark>
-
-In English: “the square of every natural number is a natural number.”
-
-$$(\forall x \in N)(\exist y \in N) (y = x^2)$$ <mark style="color:blue;">True</mark>
-
-## Quantifiers....negation...DeMorgan again.
-
-Consider
-
-$$\lnot (\forall x \in S)(P(x))$$,
-
-not all x in S, P(x) holds
-
-English: there is an $$x$$ in $$S$$ where $$P(x)$$ does not hold.
-
-That is,
-
-$$\lnot (\forall x \in S)(P(x)) \iff \exist (x \in S)(\lnot P(x))$$.
-
-What we do in this course! We consider claims.
-
-Claim: $$(\forall x) P(x)$$ “For all inputs x the program works.”
-
-For False , find x, where$$\lnot P(x)$$.
-
-Counter example.
-
-Bad input.
-
-Case that illustrates bug.
-
-For True : prove claim. Next lectures...
-
-Negation of exists.
-
-Consider
-
-$$\lnot (\exist x \in S)(P(x))$$
-
-English: means that there is no $$x \in S$$ where $$P(x)$$ is true. English:
-
-means that for all $$x \in S$$, $$P(x)$$ does not hold.
-
-That is,
-
-$$\lnot (\exist x \in S)(P(x))  \iff \forall (x \in S) \lnot P(x)$$.
-
-## Summary.
-
-Propositions are statements that are true or false.
-
-Proprositional forms use ∧, ∨, ¬.
-
-Propositional forms correspond to truth tables.
-
-Logical equivalence of forms means same truth tables.
-
-Implication: $$P \implies Q \iff \lnot P \lor Q$$.
-
-Contrapositive:$$\lnot Q \implies \lnot P$$
-
-Converse: $$Q \implies P$$
-
-Predicates: Statements with “free” variables.
-
-Quantifiers: $$\forall x P(x)$$, $$\exist y Q(y )$$
-
-Now can state theorems! And disprove false ones!
-
-DeMorgans Laws: “Flip and Distribute negation”
-
-$$\lnot (P \lor Q) \iff (\lnot P \land \lnot Q)$$
-
-$$\lnot \forall x P(x) \iff \exist x \lnot P(x)$$.
