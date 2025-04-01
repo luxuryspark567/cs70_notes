@@ -117,7 +117,9 @@ Propositions should <mark style="color:red;">have an underlying “universe"</ma
 To express these statements mathematically we need <mark style="color:red;">two quantifiers</mark>: &#x20;
 
 * The universal quantifier <mark style="color:red;">∀(“for all”)</mark>
+  * $$(\exists x \in S)(P(x))$$ means “There exists an $$x$$ in $$S$$ where $$P(x)$$ is true.”
 * the existential quantifer <mark style="color:red;">∃(“there exists”)</mark>
+  * $$(\forall x \in S) (P(x))$$. means “For all $$x$$ in $$S$$, $$P(x)$$ is True .”
 
 {% hint style="info" %}
 Note that in a finite universe, we can express existentially and universally quantified propositions without quantifiers, <mark style="color:red;">using disjunctions and conjunctions respectively</mark>.&#x20;
@@ -145,60 +147,45 @@ However, in an infinite universe, such as the natural numbers, this is not possi
 
 ## Much Ado About Negation
 
-First, let’s look at how to negate conjunctions and disjunctions:
+### De Morgan’s Laws
 
-¬(P ∧Q) ≡(¬P ∨¬Q)
+* ¬(P ∧Q) ≡(¬P ∨¬Q)
+* ¬(P ∨Q) ≡(¬P ∧¬Q)
 
-¬(P ∨Q) ≡(¬P ∧¬Q)
+### Analogous laws
 
-These two equivalences are known as De Morgan’s Laws, and they are quite intuitive: for example, if it is
+negating propositions involving quantifiers follows analogous law.
 
-not the case that P ∧Q is true, then either P or Q must be false.
+* ¬(∀xP(x)) ≡∃x¬P(x)
+* ¬(∃xP(x)) ≡∀x¬P(x)
 
-Negating propositions involving quantifiers actually follows analogous laws. Let’s start with a simple example. Assume that the universe is {1, 2, 3, 4}and let P(x) denote the propositional formula “x2 > 10." Check that ∃xP(x) is true but ∀xP(x) is false. Observe that both¬(∀xP(x)) and ∃x¬P(x) are true because P(1) is false. Also note that both ∀x¬P(x) and¬(∃xP(x)) are false, since P(4) is true. The fact that each pair of statements had the same truth value is no accident, as the equivalences
+Example:
 
-¬(∀xP(x)) ≡∃x¬P(x)
+* The universe: {1, 2, 3, 4}
+* P(x) : x > 10.
 
-¬(∃xP(x)) ≡∀x¬P(x)
+∃xP(x) is true and ∀xP(x) is false
 
-are laws that hold for any proposition P quantified over any universe (including infinite ones).
+¬(∀xP(x)) and ∃x¬P(x) are true, since P(1) is false.
 
-It is helpful to think of English sentences to convince yourself (informally) that these laws are true. For
+∀x¬P(x) and¬(∃xP(x)) are false, since P(4) is true.&#x20;
 
-example, assume that we are working within the universe Z (the set of all integers), and that P(x) is the
+### Analogous laws for more complex example
 
-proposition “x is odd." We know that the statement (∀xP(x)) is false, since not every integer is odd. Therefore, we expect its negation,¬(∀xP(x)), to be true. But how would you say the negation in English? Well, if it is not true that every integer is odd, then that must mean there is some integer which is not odd (i.e., even). How would this be written in propositional form? That’s easy, it’s just: (∃x¬P(x)).
-
-To see a **more complex example, fix some universe and propositional formula P(x, y)**. Assume we have the proposition¬(∀x∃yP(x, y)) and we want to push the negation operator inside the quantifiers. By the above laws, we can do it as follows:
+to push the negation operator inside the quantifiers (the quantifiers “flip” as we go):
 
 ¬(∀x∃yP(x, y)) ≡∃x¬(∃yP(x, y)) ≡∃x∀y¬P(x, y).
 
-Notice that we broke the complex negation into a smaller, easier problem as the negation propagated itself through the quantifiers. Note also that the quantifiers “flip” as we go.
-
 Let’s look at a trickier example:
 
-Write the sentence “there are at least three distinct integers x that satisfy P(x)" as a proposition using
-
-quantifiers! One way to do it is
-
-∃x∃y∃z(x ̸= y ∧y ̸= z ∧z ̸= x ∧P(x) ∧P(y) ∧P(z)).
-
-(Here all quantifiers are over the universe Z of integers.) Now write the sentence “there are at most three
-
-distinct integers x that satisfy P(x)" as a proposition using quantifiers. One way to do it is
-
-∃x∃y∃z∀d(P(d) = ⇒d= x ∨d= y ∨d= z).
-
-Here is an equivalent way to do it:
-
-∀x∀y∀v∀z((x ̸= y ∧y ̸= v ∧v ̸= x ∧x ̸= z ∧y ̸= z ∧v ̸= z) = ⇒¬(P(x) ∧P(y) ∧P(v) ∧P(z))).
-
-\[Check that you understand both of the above alternatives.] Finally, what if we want to express the sentence “there are exactly three distinct integers x that satisfy P(x)"? This is now easy: we can just use the conjunction of the two propositions above.
-
-* "There exists" quantifier
-  * $$(\exists x \in S)(P(x))$$ means “There exists an $$x$$ in $$S$$ where $$P(x)$$ is true.”
-* "For all" quantifier
-  * $$(\forall x \in S) (P(x))$$. means “For all $$x$$ in $$S$$, $$P(x)$$ is True .”
+* $$P: \exist x \exist y \exist z(x \neq y \land y \neq z \land z \neq x \land P(x) \land P(y) \land P(z))$$.
+  * “there are at least three distinct integers x that satisfy P(x)"
+* $$Q:  \exist x \exist y \exist z \forall d (P(d) \implies d = x \lor d = y \lor d= z)$$.
+  * “there are at most three distinct integers x that satisfy P(x)"
+  * Here is an equivalent way to do it:
+  * $$\forall x \forall y \forall v \forall z ((x \neq y \land y \neq v \land v \neq x \land x \neq z \land y \neq z \land v \neq z) \implies \lnot (P(x) \land P(y) \land P(v) \land P(z)))$$
+* $$P \land Q$$
+  * “there are exactly three distinct integers x that satisfy P(x)", This is now easy: we can just use the conjunction of the two propositions above.
 
 ## Quantifiers..not commutative.
 
