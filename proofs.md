@@ -29,7 +29,7 @@ We next introduce four different proof techniques:&#x20;
 
 ## Proof by Contraposition
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<div data-full-width="false"><figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure></div>
 
 ## Proof by Contradiction
 
