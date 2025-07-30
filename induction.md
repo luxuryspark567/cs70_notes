@@ -1,66 +1,48 @@
 # Induction
 
-Principle of Induction.
+## Principle of Induction
 
-P(0) ∧(∀n ∈N)P(n) ⇒P(n + 1)
+$$P(0) \land (\forall n \in N ) P(n) \implies P(n + 1)$$
 
 Then we get:
 
-(∀n ∈N)P(n).
+$$( \forall n \in N) P(n)$$.
 
 “But aren’t you starting with the statement to prove the statement?”
 
 In general, ∀n ∈N P(n) ̸≡P(n + 1).
 
-“P(n)” is “different” statement than “P(n + 1)” for any fixed n.
-
-Start with statement P(n) and prove P(n + 1).
-
-Is this a statement or a predicate?
-
-A little subtle;
-
-we fix the natural number n (bind n in ∀n.)
-
-BTW: Can you do induction over the reals? No.
-
-The notion of “next” is undefinable.
+“P(n)” is “different” statement than “P(n + 1)” <mark style="color:$danger;">for any fixed n</mark>.
 
 ## Two color theorem: example.
 
-Any map formed by dividing the plane into regions by drawing straight
+Any map formed by dividing the plane into regions by drawing straight lines can be properly colored with two colors.
 
-lines can be properly colored with two colors.
-
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Fact: Swapping red and blue gives another valid colors.
 
-Base Case.
+### Base Case.
 
 1\. Add line.
 
 2\. Get inherited color for split regions
 
-3\. Switch on one side of new line.
+3\. <mark style="color:$danger;">Switch on one side</mark> of new line.(Fixes conflicts along line, and makes no new ones.)
 
-(Fixes conflicts along line, and makes no new ones.)
-
-Algorithm gives P(k ) = ⇒P(k + 1).
+Algorithm gives $$P(k) \implies P(k + 1)$$.
 
 {% hint style="danger" %}
-This induction process give out an algorithm, to color the map, which is very important in algorithm design in computer science.
-
-This is recursion.
+This induction process give out an algorithm, to color the map, which is very important in algorithm design in computer science.This is recursion.
 {% endhint %}
 
 ## Strenthening Induction Hypothesis
 
-Assume more to make the prove more powerful.
+<mark style="color:$danger;">Assume more to make the prove more powerful.</mark>
 
-Theorem: The sum of the first n odd numbers is a perfect square.
+**Theorem: The sum of the first n odd numbers is a perfect square.**
 
-Theorem: The sum of the first n odd numbers is n2
+<mark style="color:$success;">Theorem: The sum of the first n odd numbers is</mark> $$n^2$$
 
 k th odd number is 2(k−1) + 1.
 
@@ -73,8 +55,6 @@ Induction Step 1. The (k + 1)st odd number is 2k + 1.
 2\. Sum of the first k + 1 odds is
 
 a2 + 2k + 1= k 2 + 2k + 1
-
-????
 
 3\. k 2 + 2k + 1= (k + 1)2
 
@@ -90,49 +70,43 @@ With the stronger therom, then you can use the stronger statement as your induct
 
 ## Strong Induction
 
-Theorem: Every natural number n > 1 can be written as a (possibly
-
-trivial) product of primes.
+Theorem: Every natural number n > 1 can be written as a (possibly trivial) product of primes.
 
 Definition: A prime n has exactly 2 factors 1 and n.
 
-Base Case: n = 2.
+**Base Case**: n = 2.
 
-Induction Step:
+**Induction Step**:
 
-P(n) =“n can be written as a product of primes. “
-
-Either n + 1 is a prime or n + 1= a·b where 1 < a, b < n + 1.
+P(n) =“n can be written as a product of primes. “Either n + 1 is a prime or n + 1= a·b where 1 < a, b < n + 1.
 
 P(n) says nothing about a, b!
 
-Strong Induction Principle: If P(0) and
+### Strong Induction Principle:
 
-(∀k ∈N)((P(0) ∧. . . ∧P(k )) = ⇒P(k + 1)),
+<mark style="color:$success;">If</mark> $$P(0)$$ and $$(\forall k \in N)((P(0)  \land . . . \land P(k ))  \implies P(k + 1))$$,
 
-then (∀k ∈N)(P(k )).
+<mark style="color:$success;">then</mark> $$(\forall k \in N)(P(k ))$$.
 
-P(0) = ⇒P(1) = ⇒P(2) = ⇒P(3) = ⇒···
+&#x20;P(0) ⇒P(1) ⇒P(2) ⇒P(3) ⇒···
 
-Strong induction hypothesis: “a and b are products of primes”
+### Strong induction hypothesis:&#x20;
 
-\= ⇒ “n + 1= a·b = (factorization of a)(factorization of b)”
+“a and b are products of primes” ⇒ “n + 1= a·b = (factorization of a (factorization of b)”
 
 n + 1 can be written as the product of the prime factors!
 
-## Well Ordering Principle and Induction.
+## <mark style="color:$danger;">Well Ordering Principle</mark> and Induction.
 
-If (∀n)P(n) is not true, then (∃n)¬P(n).
+If (∀n)P(n) is not true, then (∃n)¬P(n). (find one case which does not fit)
 
 Consider smallest m, with¬P(m), m ≥0
 
-P(m−1) = ⇒P(m) must be false (assuming P(0) holds.)
+P(m−1) ⇒P(m) must be false (assuming P(0) holds.)
 
 This is a proof of the induction principle!
 
-I.e.,
-
-(¬∀n)P(n) = ⇒((∃n)¬(P(n−1) = ⇒P(n)).
+I.e., (¬∀n)P(n) ⇒ ((∃n)¬(P(n−1) ⇒P(n)).
 
 (Contrapositive of Induction principle (assuming P(0))
 
@@ -144,9 +118,7 @@ Smallest may not be what you expect: the well ordering principal
 
 holds for rationals but with different ordering!!
 
-E.g. Reduced form is “smallest” representation of rational number
-
-a/b.
+E.g. Reduced form is “smallest” representation of rational number a/b.
 
 Thm: All natural numbers are interesting.
 
