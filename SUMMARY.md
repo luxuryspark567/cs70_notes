@@ -4,4 +4,4 @@
 * [0. Sets and Mathematical Notation](0.-sets-and-mathematical-notation.md)
 * [1. Propositional Forms](1.-propositional-forms.md)
 * [2. Proofs](2.-proofs.md)
-* [Induction](induction.md)
+* [3. Induction](3.-induction.md)
