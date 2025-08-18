@@ -15,13 +15,13 @@ AM调制信号的数学表达式为： $$V_{AM}(t) = V_c \left[ 1 + m \cos(2\pi 
 * $$V_c$$是载波的振幅（峰值电压），
 * $$m$$是调制深度（此处 ( m = 0.8 )），
 * $$f_m$$是调制频率（1kHz），
-* $$f_c$$是载波频率（RF信号频率，假设远高于 ( f\_m )）。
+* $$f_c$$是载波频率（RF信号频率，假设远高于 $$f_m$$）。
 
 ***
 
 #### **2. 载波振幅** $$V_c$$**与RMS电压的关系**
 
-已知RF信号的 **RMS电压为1V**，对于正弦载波： $$V_{\text{RMS}} = \frac{V_c}{\sqrt{2}} \implies V_c = \sqrt{2} \times V_{\text{RMS}} = \sqrt{2} \times 1 = \sqrt{2} \approx 1.414 , \text{V（峰值）}$$
+已知RF信号的 **RMS电压为1V**，对于正弦载波： $$V_{\text{RMS}} = \frac{V_c}{\sqrt{2}} \implies V_c = \sqrt{2} \times V_{\text{RMS}} = \sqrt{2} \times 1 = \sqrt{2} \approx 1.414 \text{V（峰值）}$$
 
 ***
 
@@ -31,10 +31,10 @@ AM调制信号的数学表达式为： $$V_{AM}(t) = V_c \left[ 1 + m \cos(2\pi 
 
 **调制包络的峰峰值**
 
-* **最大振幅**（包络峰值）：$$\sqrt{2} \times (1 + 0.8) = \sqrt{2} \times 1.8 \approx 2.545 , \text{V}$$
-* **最小振幅**（包络谷值）：$$\sqrt{2} \times (1 - 0.8) = \sqrt{2} \times 0.2 \approx 0.283 , \text{V}$$
+* **最大振幅**（包络峰值）：$$\sqrt{2} \times (1 + 0.8) = \sqrt{2} \times 1.8 \approx 2.545 \text{V}$$
+* **最小振幅**（包络谷值）：$$\sqrt{2} \times (1 - 0.8) = \sqrt{2} \times 0.2 \approx 0.283 \text{V}$$
 * **峰峰值电压**$$V_{pp}$$：\
-  $$V_{pp} = \text{最大振幅} - \text{最小振幅} = 2.545 - (-2.545) = 5.09 , \text{V}$$（注意：实际包络的峰峰值是$$1.8\sqrt{2} - (-1.8\sqrt{2}) = 3.6\sqrt{2} \approx 5.09 , \text{V} )$$，但更准确的计算见下一步。
+  $$V_{pp} = \text{最大振幅} - \text{最小振幅} = 2.545 - (-2.545) = 5.09 \text{V}$$（注意：实际包络的峰峰值是$$1.8\sqrt{2} - (-1.8\sqrt{2}) = 3.6\sqrt{2} \approx 5.09 \text{V} )$$，但更准确的计算见下一步。
 
 **修正包络峰峰值**
 
