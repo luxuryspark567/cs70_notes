@@ -5,4 +5,5 @@
 * [1. Propositional Forms](1.-propositional-forms.md)
 * [2. Proofs](2.-proofs.md)
 * [3. Induction](3.-induction.md)
+* [Stable Marrige](stable-marrige.md)
 * [RF信号调制信号幅度计算](rf-xin-hao-tiao-zhi-xin-hao-fu-du-ji-suan.md)
