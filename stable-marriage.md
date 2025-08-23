@@ -1,5 +1,225 @@
 # Stable Marriage
 
+## Some quibbles.
+
+The induction principle works on the natural numbers.
+
+Proves statements of form: ∀n ∈N, P(n).
+
+Yes.
+
+What if the statement is only for n ≥3?
+
+∀n ∈N, (n ≥3) = ⇒P(n)
+
+Restate as:
+
+∀n ∈N, Q(n) where Q(n) =“(n ≥3) = ⇒P(n)”.
+
+Base Case: typically start at 3.
+
+Since ∀n ∈N, Q(n) = ⇒Q(n + 1) is trivially true before 3.
+
+Can you do induction over other things? Yes.
+
+Any set where any subset of the set has a smallest element.
+
+In some sense, the natural numbers.
+
+## Strong Induction and Recursion.
+
+<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+Thm: For every natural number n ≥12, n = 4x + 5y.
+
+Instead of proof, let’s write some code!
+
+def find-x-y(n):
+
+if (n==12) return (3,0)
+
+elif (n==13): return(2,1)
+
+elif (n==14): return(1,2)
+
+elif (n==15): return(0,3)
+
+else:
+
+(x’,y’) = find-x-y(n-4)
+
+return(x’+1,y’)
+
+Base cases: P(12) , P(13) , P(14) , P(15). Yes.
+
+Strong Induction step:
+
+Recursive call is correct: P(n−4) = ⇒ P(n).
+
+n−4= 4x′+ 5y ′
+
+\= ⇒n = 4(x′+ 1) + 5(y ′)
+
+Slight differences: showed for all n ≥16 that ∧n−1
+
+i=4 P(i) = ⇒P(n).
+
+## Strengthening: need to...
+
+<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+1
+
+i2.)
+
+Theorem: For all n ≥1, ∑n
+
+i=1
+
+1
+
+i2 ≤2. (Sn = ∑n
+
+i=1
+
+Base: P(1). 1 ≤2.
+
+Ind Step: ∑k
+
+1
+
+i=1
+
+i2 ≤2.
+
+∑k +1
+
+1
+
+i=1
+
+i2
+
+\= ∑k
+
+1
+
+i=1
+
+i2 + 1
+
+(k +1)2.
+
+≤2+ 1
+
+(k +1)2
+
+Uh oh?
+
+Hmmm... It better be that any sum is strictly less than 2.
+
+How much less? At least by 1
+
+(k +1)2 for Sk.
+
+“Sk ≤2−
+
+1
+
+”
+
+(k +1)2
+
+\= ⇒ “Sk +1 ≤2”
+
+Induction step works! No! Not the same statement!!!!
+
+Need to prove “Sk +1 ≤2−
+
+1
+
+(k +2)2 ”.
+
+Darn!!!
+
+## Strenthening: how?
+
+<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Theorem: For all n ≥1, ∑n
+
+i=1
+
+
+
+Proof:
+
+Ind hyp: P(k ) — “Sk ≤2−f (k )”
+
+Prove: P(k + 1) – “Sk +1 ≤2−f (k + 1)”
+
+S(k + 1) = Sk + 1
+
+(k +1)2
+
+≤2−f (k ) + 1
+
+(k +1)2 By ind. hyp.
+
+Choose f (k + 1) ≤f (k )−
+
+1
+
+(k +1)2.
+
+\= ⇒ S(k + 1) ≤2−f (k + 1).
+
+Can you?
+
+Subtracting off a quadratically decreasing function every time.
+
+Maybe a linearly decreasing function to keep positive?
+
+Try f (k ) = 1
+
+k
+
+1
+
+k +1 ≤1
+
+1
+
+k−
+
+(k +1)2 ?
+
+1 ≤k +1
+
+1
+
+k−
+
+k +1 Multiplied by k + 1.
+
+1 ≤1+ ( 1
+
+1
+
+k−
+
+k +1 ) Some math. So yes!
+
+Theorem: For all n ≥1, ∑n
+
+1
+
+i=1
+
+i2 ≤2−
+
+1
+
 ## Stable Marriage Problem
 
 * Small town with n boys and n girls.
@@ -18,7 +238,53 @@ Maximize worse off.
 
 Minimize difference between preference ranks.
 
+## The best laid plans..
 
+Consider the couples..
+
+Jennifer and Brad
+
+Angelina and Billy-Bob
+
+Brad prefers Angelina to Jennifer.
+
+Angelina prefers Brad to BillyBob.
+
+Uh..oh.
+
+## So..
+
+Produce a pairing where there is no running off!
+
+Definition: A pairing is disjoint set of n boy-girl pairs.
+
+Example: A pairing S= {(Brad , Jen); (BillyBob, Angelina)}.
+
+Definition: A rogue couple b, g∗for a pairing S:
+
+b and g∗prefer each other to their partners in S
+
+Example: Brad and Angelina are a rogue couple in S.
+
+## A stable pairing??
+
+Given a set of preferences.
+
+Is there a stable pairing?
+
+How does one find it?
+
+Consider a single gender version: stable roommates.
+
+A B C D
+
+B C A D
+
+C A B D
+
+D A B C
+
+<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 ## The Traditional Marriage Algorithm.
 
@@ -39,6 +305,20 @@ Does this terminate?
 ....a stable pairing?
 
 Do boys or girls do “better”?
+
+<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+## Termination.
+
+Every non-terminated day a boy crossed an item off the list.
+
+Total size of lists? n boys, n length list. n2
+
+Terminates in at most n2 + 1 steps!
+
+
+
+
 
 ## It gets better every day for girls..
 
@@ -77,6 +357,8 @@ Why is lemma true?
 Proof Idea: Because she can always keep the previous boy on the
 
 string.
+
+## Improvement Lemma
 
 Improvement Lemma: It just gets better for girls.
 
@@ -138,6 +420,8 @@ Proof:
 
 Assume there is a rogue couple; (b, g∗)
 
+<figure><img src=".gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+
 b∗ g∗ b likes g∗more than g.
 
 g∗likes b more than b∗
@@ -158,13 +442,9 @@ Contradiction!
 
 Is the TMA better for boys? for girls?
 
-Definition: A pairing is x-optimal if x′s partner
+Definition: A pairing is **x-optimal** if x′s partner is x’s best partner in any stable pairing.
 
-is x’s best partner in any stable pairing.
-
-Definition: A pairing is x-pessimal if x′s partner
-
-is x’s worst partner in any stable pairing.
+Definition: A pairing is **x-pessimal** if x′s partner is x’s worst partner in any stable pairing.
 
 Definition: A pairing is boy optimal if it is x-optimal for all boys x.
 
@@ -222,7 +502,7 @@ Which is optimal for 1? T Which is optimal for 2? T
 
 For boys? For girls?
 
-Theorem: TMA produces a boy-optimal pairing.
+**Theorem: TMA produces a boy-optimal pairing.**
 
 Proof:
 
@@ -256,11 +536,51 @@ Notes: S - stable. (b∗
 
 Used Well-Ordering principle...Induction.
 
+## How about for girls?
 
+Theorem: TMA produces girl-pessimal pairing.
 
+T – pairing produced by TMA.
 
+S – worse stable pairing for girl g.
 
+In T , (g, b) is pair.
 
+In S, (g, b∗) is pair.
+
+g likes b∗less than she likes b.
+
+T is boy optimal, so b likes g more than his partner in S.
+
+(g, b) is Rogue couple for S
+
+S is not stable.
+
+Contradiction.
+
+Notes: Not really induction.
+
+Structural statement: Boy optimality= ⇒ Girl pessimality.
+
+## Quick Questions.
+
+How does one make it better for girls?
+
+SMA - stable marriage algorithm. One side proposes.
+
+TMA - boys propose.
+
+Girls could propose.= ⇒ optimal for girls.
+
+## Residency Matching..
+
+The method was used to match residents to hospitals.
+
+Hospital optimal....
+
+..until 1990’s...Resident optimal.
+
+Another variation: couples.
 
 
 
