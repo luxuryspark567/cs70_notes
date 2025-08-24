@@ -210,11 +210,37 @@ Visits edges in C exactly once.
 
 By induction for all edges in each Gi.
 
+## Planar graphs.
 
+A graph that can be drawn in the plane without edge crossings.
 
+The problem is, how to prove a graph is not a planar graph.
 
+## Euler’s Formula.
 
+<figure><img src=".gitbook/assets/image (29).png" alt="" width="345"><figcaption></figcaption></figure>
 
+<mark style="color:$info;">**Faces**</mark><mark style="color:$info;">: connected regions of the plane.</mark>
+
+How many faces for
+
+triangle? 2 (triangle + infinant)
+
+complete on four vertices or K4? 4
+
+bipartite, complete two/three or K2,3? 3
+
+v is number of vertices, e is number of edges, f is number of faces.
+
+<mark style="color:$info;">Euler’s Formula: Connected planar graph has v + f= e + 2.</mark>
+
+Triangle: 3+ 2= 3+ 2!
+
+K4: 4+ 4= 6+ 2!
+
+K2,3: 5+ 3= 6+ 2!
+
+Examples = 3! Proven! Not!!!!
 
 
 
