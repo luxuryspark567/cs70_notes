@@ -230,7 +230,9 @@ complete on four vertices or K4? 4
 
 bipartite, complete two/three or K2,3? 3
 
-v is number of vertices, e is number of edges, f is number of faces.
+* <mark style="color:$info;">v</mark> is number of vertices
+* <mark style="color:$info;">e</mark> is number of edges
+* <mark style="color:$info;">f</mark> is number of faces.
 
 <mark style="color:$info;">Euler’s Formula: Connected planar graph has v + f= e + 2.</mark>
 
@@ -241,6 +243,125 @@ K4: 4+ 4= 6+ 2!
 K2,3: 5+ 3= 6+ 2!
 
 Examples = 3! Proven! Not!!!!
+
+## Euler and Polyhedron.
+
+Greeks knew formula for convex polyhedron.
+
+<figure><img src=".gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+Faces? 6. Edges? 12. Vertices? 8.
+
+Euler: Connected planar graph: v + f= e + 2.
+
+8+ 6= 12+ 2.
+
+Greeks couldn’t prove it. Induction? Remove vertice for polyhedron?
+
+Convex Polyhedron without holes ≡Planar graphs.
+
+Surround by sphere.
+
+Project from point inside polytope onto sphere.
+
+Sphere ≡Plane! Topologically.
+
+Euler proved formula thousands of years later!
+
+## Euler and non-planarity of K5 and K3,3
+
+
+
+Euler: v + f= e + 2 for connected planar graph.
+
+We consider simple graphs where v ≥3.
+
+Consider Face edge Adjacencies.
+
+
+
+Each face is adjacent to at least three edges.
+
+≥3f face-edge adjacencies.
+
+Each edge is adjacent to (at most) two faces.
+
+≤2e face-edge adjacencies.
+
+\= ⇒ 3f ≤2e for any planar graph. Or f ≤2
+
+3 e.
+
+Plug into Euler: v + 2/3 e ≥e + 2= ⇒ e ≤3v−6 (replace f with something bigger 2/3\*e)
+
+K5 Edges? 4+ 3+ 2+ 1= 10. Vertices? 5.
+
+10 ̸≤3(5)−6= 9.= ⇒ K5 is not planar.
+
+{% hint style="info" %}
+How do you prove there is no drawing?
+
+1, Prove a property what a planar drawing look like
+
+2, And you can use that to argue that if the drawing does not apply to this property;
+
+3, Then you can conclude that drawings like K5 is not planar.
+{% endhint %}
+
+## Proving non-planarity for K3,3
+
+<figure><img src=".gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+
+* Counter from the bottom verteces, 3 + 3 + 3 = 9 edges.
+* 6 verteces
+
+Euler’s formula= ⇒ 3f ≤2e for any planar graph.
+
+K3,3? Edges? 9. Vertices. 6.
+
+9 ≤3(6)−6? Sure!
+
+<mark style="color:$danger;">Proof doesn’t work. Let’s fix this.</mark>
+
+In a planar face, each face corresponds to a cycle.
+
+But no cycles that are triangles. Face is of length ≥4.
+
+Because all cycles are even length; bipartite or edges only go
+
+between two groups.
+
+.... 4f ≤2e for any bipartite planar graph.
+
+Euler: v + 1
+
+2 e ≥e + 2= ⇒ e ≤2v−4 for bipartite planar graph
+
+9 ̸≤2(6)−4.= ⇒ K3,3 is not planar!
+
+## Oh my goodness..what have we done!
+
+Graphs.
+
+Basics.
+
+Connectivity.
+
+Algorithm for Eulerian Tour.
+
+Planar Graphs.
+
+Euler’s formula.
+
+Non-planarity of K5 and K3,3.
+
+Next Time: prove Euler’s formula.
+
+
+
+
+
+
 
 
 
