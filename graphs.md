@@ -4,149 +4,85 @@
 
 Graph: G = (V , E)
 
-neighbors, adjacent, degree, incident, in-degree, out-degree
-
-<figure><img src=".gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
-
-Neighbors of 10? 1, 5, 7, 8.
-
-u is neighbor of v if {u, v }∈E.
-
-Edge {10, 5} is incident to vertex 10 and vertex 5.
-
-Edge {u, v }is incident to u and v.
-
-Degree of vertex 1? 2
-
-Degree of vertex u is number of incident edges.
-
-Equals number of neighbors in simple graph.
-
-Directed graph?
-
-In-degree of 10? 1 Out-degree of 10? 3
-
-## Quick Proof.
-
-The sum of the vertex degrees is equal to
-
-(A) the total number of vertices, |V |.
-
-(B) the total number of edges, |E|.
-
-How many incidences does each edge contribute? 2.
-
-2|E| incidences are contributed in total!
-
-What is degree v ? incidences contributed to v !
-
-sum of degrees is total incidences ... or 2|E|.
-
-Thm: Sum of vertex degress is 2|E|.
-
-## Paths, walks, cycles, tour.
-
-<mark style="color:$info;">**A path**</mark> in a graph is a sequence of edges.
-
-Path? {1, 10}, {8, 5}, {4, 5}? No!
-
-Path? {1, 10}, {10, 5}, {5, 4}, {4, 11}? Yes!
-
-Path: (v1, v2), (v2, v3), . . . (vk−1, vk ).
-
-Quick Check! Length of path? k vertices or k−1 edges.
-
-<mark style="color:$info;">**Cycle:**</mark> Path with v1 = vk. Length of cycle? k−1 vertices and edges!
-
-Path is usually simple. No repeated vertex!
-
-<mark style="color:$info;">**Walk**</mark> is sequence of edges with possible repeated vertex or edge.
-
-<mark style="color:$info;">Tour</mark> is walk that starts and ends at the same node.
-
-## Directed Paths.
-
-Path: (v1, v2), (v2, v3), . . . (vk−1, vk ).
-
-Paths, walks, cycles, tours ... are analagous to undirected now.
+* neighbors: _u_ is neighbor of _v_ if edge _{u, v } ∈ E_.
+* adjacent
+* degree: Degree of vertex u is number of incident edges.
+* incident: Edge {u, v} is incident to u and v.
+* in-degree:&#x20;
+* out-degree
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+## Quick Proof.
+
+Thm: Sum of vertex degress is 2|E|.
+
+* Each edge contribute 2 incidences, total 2|E|.
+* Degree v is incidences contributed to v.
+
+## Paths, Walks, Cycles, Tour.
+
+* <mark style="color:$info;">Path is</mark> a graph is a sequence of edges, $$(v_1, v_2), (v_2, v_3), . . . (v_{k−1}, v_k )$$.
+  * Length of path: k vertices or k−1 edges.
+  * Path is usually simple. No repeated vertex!
+* <mark style="color:$info;">**Cycle:**</mark> Path with $$v_1 = v_k$$.
+  * Length of cycle: k−1 vertices and edges.
+* <mark style="color:$info;">**Walk**</mark> is sequence of edges with possible repeated vertex or edge.
+* <mark style="color:$info;">**Tour**</mark> is walk that starts and ends at the same node.
+
+{% hint style="info" %}
+For directed graph, paths, walks, cycles, tours ... are analagous to undirected now.
+{% endhint %}
+
 ## Connectivity: undirected graph.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-u and v are connected if there is a path (or walk) between u and v.
 
-A connected graph is a graph where all pairs of vertices are
 
-connected.
+$$u$$ <mark style="color:$info;">and</mark> $$v$$ <mark style="color:$info;">are connected</mark> if there is a path (or walk) between $$u$$ and $$v$$.
 
-If one vertex x is connected to every other vertex.
-
-Is graph connected? Yes? No?
-
-Proof:
-
-Any u, v : path from u to x and then from x to v is u−v walk.
-
-May not be simple!
-
-Either modify definition to walk.
-
-Or cut out cycles. .
+<mark style="color:$info;">A connected graph</mark> is a graph where all pairs of vertices are connected.
 
 ## Connected Components
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<div data-full-width="true"><figure><img src=".gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-Is graph above connected? Yes!
+Connected Components
 
-How about now? No!
-
-Connected Components? {1}, {10, 7, 5, 8, 4, 3, 11}, {2, 9, 6}.
+* {1}
+* {10, 7, 5, 8, 4, 3, 11}
+* {2, 9, 6}.
 
 Connected component - <mark style="color:$info;">**maximal set**</mark> of connected vertices.
 
-Quick Check: Is {10, 7, 5}a connected component? No.
-
 ## Finally..back to Euler!
 
-<mark style="color:$info;">**An Eulerian Tour**</mark> <mark style="color:$info;"></mark><mark style="color:$info;">is a tour that visits each edge exactly once.</mark>
+<mark style="color:$info;">**An Eulerian Tour**</mark> <mark style="color:$info;"></mark><mark style="color:$info;">is a tour that visits</mark> <mark style="color:$danger;">each edge</mark> <mark style="color:$info;">exactly once.</mark>
 
-Theorem: Any undirected graph has an Eulerian tour if and only if all
+Theorem: Any undirected graph has an Eulerian tour if and only if <mark style="color:$danger;">all vertices have even degree</mark> and <mark style="color:$danger;">is connected</mark>.
 
-vertices have even degree and is connected.
+Proof of only if: Eulerian⇒ connected and all even degree.
 
-Proof of only if: Eulerian= ⇒ connected and all even degree.
+* Eulerian Tour is connected so graph is connected.
+* v has even degree for:
+  * Tour enters and leaves vertex $$v$$ on each visit.
+  * Uses two incident edges per visit. Tour uses all incident edges.
+  * For starting node, tour leaves first ....then enters at end.
 
-Eulerian Tour is connected so graph is connected.
-
-Tour enters and leaves vertex v on each visit.
-
-Uses two incident edges per visit. Tour uses all incident edges.
-
-Therefore v has even degree.
+<mark style="color:$success;">When you enter, you can leave.</mark>
 
 <figure><img src=".gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
-When you enter, you can leave.
-
-For starting node, tour leaves first ....then enters at end.
-
-Not The Hotel California.
-
 ## Finding a tour!
 
-Proof of if: Even + connected= ⇒ Eulerian Tour.
+Proof of if: Even + connected ⇒ Eulerian Tour.
 
 We will give an algorithm. First by picture.
 
 <figure><img src=".gitbook/assets/image (25).png" alt="" width="192"><figcaption></figcaption></figure>
 
-1\. Start walk from v (1) on “unused” edges
-
-... till you get back to v.
+1\. Start walk from v(1) on “unused” edges ... till you get back to v.
 
 <figure><img src=".gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
