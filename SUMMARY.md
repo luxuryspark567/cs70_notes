@@ -6,4 +6,4 @@
 * [2. Proofs](2.-proofs.md)
 * [3. Induction](3.-induction.md)
 * [4. Stable Marriage](4.-stable-marriage.md)
-* [Graphs](graphs.md)
+* [5. Graphs](5.-graphs.md)
