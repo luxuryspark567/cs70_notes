@@ -7,3 +7,4 @@
 * [3. Induction](3.-induction.md)
 * [4. Stable Marriage](4.-stable-marriage.md)
 * [5. Graphs](5.-graphs.md)
+* [6. More Graphs](6.-more-graphs.md)
