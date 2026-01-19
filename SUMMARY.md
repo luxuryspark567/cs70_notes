@@ -8,3 +8,4 @@
 * [4. Stable Marriage](4.-stable-marriage.md)
 * [5. Graphs](5.-graphs.md)
 * [6. More Graphs](6.-more-graphs.md)
+* [7. Modular Arithmatic](7.-modular-arithmatic.md)
